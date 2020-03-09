@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../css/login.css" />
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Oxanium&display=swap"
-            rel="stylesheet"
-        />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/snackbar.css">
 
-        <script
-            src="https://kit.fontawesome.com/8d8384e88c.js"
-            crossorigin="anonymous"
-        ></script>
 
-        <script defer src="../js/login.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet" />
 
-        <title>My Whatsapp</title>
-    </head>
-    <body>
-        <div class="form-group">
-            <input type="text" placeholder="Username" id="username" />
-            <label for="username">Username</label>
-            <i class="fas fa-exclamation-circle fa-lg fa-err" id="err-name"></i>
-        </div>
-        <div class="form-group">
-            <input type="password" placeholder="Password" id="password" />
-            <label for="password">Password</label>
-            <i class="fas fa-exclamation-circle fa-lg fa-err" id="err-pass"></i>
-        </div>
-        <div class="btn-container">
-            <a href="#" id="login" class="btn">Login</a>
-            <a href="#" id="register" class="btn">Register</a>
-        </div>
+    <script src="https://kit.fontawesome.com/8d8384e88c.js" crossorigin="anonymous"></script>
 
-        <div id="snackbar">
-            <span id="snacktext"></span>
-            <i class="fas fa-times" id="snackbutton"></i>
-        </div>
-    </body>
+    <script defer src="../js/login.js"></script>
+
+    <title>My Whatsapp</title>
+</head>
+
+<body>
+    <div class="form-group">
+        <input type="text" placeholder="Username" id="username" />
+        <label for="username">Username</label>
+        <i class="fas fa-exclamation-circle fa-lg fa-err fa-ab" id="err-name"></i>
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password" id="password" />
+        <label for="password">Password</label>
+        <i class="fas fa-exclamation-circle fa-lg fa-err fa-ab" id="err-pass"></i>
+        <i class="far fa-eye-slash fa-lg fa-ab fa-pass" id="pass-hide"></i>
+        <i class="far fa-eye fa-lg fa-ab fa-pass" id="pass-visible"></i>
+    </div>
+    <div class="btn-container">
+        <a href="#" id="login" class="btn">Login</a>
+        <a href="#" id="register" class="btn">Register</a>
+    </div>
+
+    <div id="snackbar">
+        <span id="snacktext"></span>
+        <i class="fas fa-times" id="snackbutton"></i>
+    </div>
+</body>
+
 </html>

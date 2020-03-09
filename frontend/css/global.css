@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-ox: "Oxanium";
+    --primary-dark: #009f2a;
+    --background-color: #dfdfdf;
+    --button-color: linear-gradient(to right, #11998e, #38ef7d);
+    --button-shadow: 5px 5px 12px #38ef7d;
+    --err-color: rgb(204, 4, 4);
+    --text-color: whitesmoke;
+    --card-color: #c2dabf;
+    --sender-color: wheat;
+
+}

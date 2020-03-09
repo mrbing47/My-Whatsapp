@@ -7,6 +7,9 @@ const errPass = document.getElementById("err-pass");
 const login = document.getElementById("login");
 const register = document.getElementById("register");
 
+const passVisible = document.getElementById("pass-visible");
+const passHide = document.getElementById("pass-hide");
+
 const snackbar = document.getElementById("snackbar");
 const snacktext = document.getElementById("snacktext");
 const snackbutton = document.getElementById("snackbutton");
@@ -46,6 +49,28 @@ function changeState(element, visible) {
         element.style.opacity = "0";
     }
 }
+
+function togglePasswordShown(visible, both) {
+    both = both || false;
+
+    passHide.style.visibility = both || !visible ? "hidden" : "visible";
+    passHide.style.opacity = both || !visible ? "0" : "1";
+
+    passVisible.style.visibility = both || visible ? "hidden" : "visible";
+    passVisible.style.opacity = both || visible ? "0" : "1";
+
+    if (!both) password.type = visible ? "text" : "password";
+}
+
+passHide.addEventListener("click", e => {
+    togglePasswordShown(false);
+    console.log(e);
+});
+
+passVisible.addEventListener("click", e => {
+    togglePasswordShown(true);
+    console.log("visible" + e);
+});
 
 snackbutton.addEventListener("click", e => {
     console.log(snackbarInterval);
@@ -94,12 +119,12 @@ function makeServerCall(route) {
             }
         })
             .then(response => {
-                console.log(response.redirected);
-                return response.text();
+                if (response.redirected) window.location.href = response.url;
+                else return response.json();
             })
             .then(msg => {
                 console.log(msg);
-                /* if (msg.msg) {
+                if (msg.msg) {
                     console.log(msg.error);
                     if (snackbarInterval == 0) {
                         changeSnackState(true, msg.msg);
@@ -109,7 +134,7 @@ function makeServerCall(route) {
                             snackbarInterval = 0;
                         }, 2000);
                     }
-                }*/
+                }
             });
     }
 }
@@ -122,10 +147,13 @@ register.addEventListener("click", e => {
     makeServerCall("register");
 });
 
-username.addEventListener("keypress", e => {
+username.addEventListener("keyup", e => {
     if (errName.style.opacity === "1") {
         changeState(errName, false);
     }
+
+    console.log(e);
+
     if (e.key === "Enter") {
         login.dispatchEvent(
             new MouseEvent("click", { bubbles: false, cancelable: false })
@@ -133,10 +161,25 @@ username.addEventListener("keypress", e => {
     }
 });
 
-password.addEventListener("keypress", e => {
+var isEmpty = false;
+
+password.addEventListener("keyup", e => {
     if (errPass.style.opacity === "1") {
         changeState(errPass, false);
     }
+
+    console.log(passHide.style.opacity === "0");
+
+    if (password.value === "") {
+        togglePasswordShown(true, true);
+        isEmpty = true;
+    } else {
+        if (isEmpty) {
+            togglePasswordShown(passHide.style.opacity === "0");
+            isEmpty = false;
+        }
+    }
+
     if (e.key === "Enter") {
         login.dispatchEvent(
             new MouseEvent("click", { bubbles: false, cancelable: false })

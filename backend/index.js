@@ -7,16 +7,19 @@ const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 
 var Users = {};
+var currUser;
 
 const frontendFolder = path.join(__dirname, "../frontend/");
 
 app.use(cookieParser());
 app.use(express.static(frontendFolder));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    console.log(frontendFolder);
     // if (req.cookies.hasOwnProperty("name")) {
+    //
+    if (req.query.redirect) res.redirect("/login");
     res.sendFile(frontendFolder + "html/index.html");
     // } else {
     //     console.log("here");
@@ -40,14 +43,21 @@ app.post("/login", (req, res) => {
                         error: err
                     });
                 else {
-                    console.log(result);
-                    res.redirect("/");
+                    if (result) {
+                        res.redirect("/");
+                    } else {
+                        res.send({
+                            msg: "Wrong Credentials",
+                            error:
+                                "wrong input password, check you password carefully"
+                        });
+                    }
                 }
             }
         );
     } else {
         res.send({
-            msg: "User does not Exist",
+            msg: "Wrong Credentials",
             error: "No user was found in the database, try registering yourself"
         });
     }
@@ -80,7 +90,7 @@ app.post("/register", (req, res) => {
 });
 
 io.on("connection", socket => {
-    console.log(socket);
+    console.log("User connected");
 });
 
 const PORT = process.env.PORT || 4769;
