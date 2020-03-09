@@ -1,0 +1,160 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfdfdf;
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 16px 0px;
+    width: 300px;
+    height: 56px;
+    outline: none;
+    background: #eee;
+    padding: 12px 20px;
+    border-radius: 28px;
+    box-shadow: 8px 8px 12px 0px rgba(0, 0, 0, 0.15);
+    transition: all ease-in 250ms;
+    border: 1.5px solid #eee;
+}
+
+input::placeholder {
+    color: transparent;
+    visibility: hidden;
+}
+
+input:placeholder-shown~label {
+    left: 32px;
+    color: #009f2a;
+    visibility: visible;
+    opacity: 1;
+}
+
+input:focus {
+    box-shadow: 16px 16px 32px 0px rgba(0, 0, 0, 0.15);
+    border: 1.5px solid #009f2a;
+    background-color: #80fda109;
+    transform: translate(-2px, -2px);
+}
+
+input:focus~label {
+    left: -88px;
+    color: #009f2a;
+    visibility: visible;
+    opacity: 1;
+}
+
+label {
+    font-weight: 700;
+    position: absolute;
+    top: 34px;
+    left: -120px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in-out 300ms;
+    font-family: "Oxanium";
+}
+
+.btn-container {
+    margin: 32px;
+}
+
+.btn {
+    margin: 0px 12px;
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    padding: 1em 2em;
+    border-radius: 24px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    transition: all ease-in-out 250ms;
+    font-family: "Oxanium";
+}
+
+.btn:hover,
+.btn:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 12px #38ef7d;
+    outline: none;
+}
+
+.fa-err {
+    transition: ease-in-out 250ms;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    margin: 0px 10px;
+    color: rgb(204, 4, 4);
+    visibility: hidden;
+    opacity: 0;
+}
+
+#snackbar {
+    position: absolute;
+    display: flex;
+
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 0.75em 2em;
+    background-color: rgb(204, 4, 4);
+    color: white;
+    border-radius: 6px;
+
+    bottom: -40px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: ease-in-out 250ms;
+}
+
+#snacktext {
+    width: 100%;
+    text-align: left;
+    font-family: "Oxanium";
+}
+
+@media (max-width: 768px) {
+    input {
+        margin: 28px;
+    }
+
+    input:placeholder-shown~label {
+        top: 48px;
+        left: 48px;
+    }
+
+    input:focus~label {
+        top: 0px;
+        left: 48px;
+    }
+
+    label {
+        top: 0px;
+    }
+
+    .fas {
+        top: 48px;
+        right: 40px;
+    }
+}
