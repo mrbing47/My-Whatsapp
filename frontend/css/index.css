@@ -8,12 +8,12 @@ body {
 }
 
 .contacts-container {
-    height: 100vh;
+    height: 100%;
     width: 360px;
     padding: 20px;
 }
 
-.contact {
+#contact {
     visibility: hidden;
     opacity: 0;
 }
@@ -22,18 +22,28 @@ body {
     text-align: center;
 }
 
-.no-contact {
+.inner-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     border-radius: 12px;
     background-color: var(--card-color);
+    width: 100%;
+    height: 100%;
+}
+
+#no-contact {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.no-contact a {
+#no-contact a {
     font-size: 12px;
     text-decoration: none;
     text-transform: uppercase;
@@ -44,27 +54,68 @@ body {
     color: white;
 }
 
-.content-container {
-    flex: 1;
+.head-container {
+    width: 100%;
+    padding: 20px 12px;
+    background-color: var(--primary-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-name {
+    margin-left: 28px;
+    color: var(--text-color);
+    font-family: var(--font-ox);
+}
+
+#logout {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 20px;
+    margin-right: 28px;
+}
+
+#content-container {
+    width: calc(100% - 360px);
     padding: 20px 20px 20px 0px;
+    transition: all ease-in 150ms;
+
+    display: flex;
+    flex-direction: column;
+
+    visibility: hidden;
+    opacity: 0;
 }
 
 .lobby-container {
-    position: relative;
-    border-radius: 12px;
     height: 100%;
     width: 100%;
-    background-color: var(--card-color);
 }
 
-.message-container {
+#lobby-name {
+    margin: 0px 50px;
+    font-size: 24px;
+    font-family: var(--font-ox);
+    color: var(--text-color);
+}
+
+#message-container {
     width: 100%;
     height: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 24px 172px;
+}
+
+#message-container::-webkit-scrollbar {
+    display: none;
 }
 
 .form-container {
     position: absolute;
-    bottom: 12px;
+    bottom: 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -89,7 +140,7 @@ body {
 
 #message {
     flex: 1;
-    margin: 20px
+    margin: 20px;
 }
 
 #message::placeholder,
@@ -109,4 +160,88 @@ body {
     font-size: 16px;
     border-radius: 50%;
     padding: 0px 4px 0px 0px;
+}
+
+
+.message-card {
+
+    padding: 16px;
+    background-color: #dedede;
+    border-radius: 8px;
+
+    color: var(--text-color);
+    font-size: 16px;
+    max-width: 52%;
+    min-height: fit-content;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.message-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0px 12px 12px;
+    font-family: var(--font-ox);
+}
+
+
+.message-body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.message-body,
+.message-info {
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+
+.receiver {
+    align-self: flex-start;
+}
+
+
+.sender {
+    align-self: flex-end;
+}
+
+
+.receiver .message-body {
+    background-color: crimson;
+    box-shadow: 0px 0px 8px crimson;
+}
+
+.receiver .message-name {
+    color: crimson;
+}
+
+.sender .message-body {
+    background-color: green;
+    box-shadow: 0px 0px 8px green;
+}
+
+.sender .message-name {
+    color: green;
+}
+
+.message-info {
+    width: 60%;
+
+    text-align: center;
+    margin: 40px auto 0px;
+    color: whitesmoke;
+    font-family: var(--font-ox);
+
+    background-color: #555;
+
+}
+
+#info-name {
+    font-size: 1.15em;
+    font-weight: 700;
 }

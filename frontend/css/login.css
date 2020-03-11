@@ -68,4 +68,9 @@ input:placeholder-shown~#pass-visible {
     label {
         top: 0px;
     }
+
+    .fa-pass {
+        top: 48px;
+        right: 40px;
+    }
 }

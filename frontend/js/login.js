@@ -123,12 +123,10 @@ function makeServerCall(route) {
                 else return response.json();
             })
             .then(msg => {
-                console.log(msg);
                 if (msg.msg) {
                     console.log(msg.error);
                     if (snackbarInterval == 0) {
                         changeSnackState(true, msg.msg);
-
                         snackbarInterval = setTimeout(() => {
                             changeSnackState(false);
                             snackbarInterval = 0;
@@ -152,8 +150,6 @@ username.addEventListener("keyup", e => {
         changeState(errName, false);
     }
 
-    console.log(e);
-
     if (e.key === "Enter") {
         login.dispatchEvent(
             new MouseEvent("click", { bubbles: false, cancelable: false })
@@ -167,8 +163,6 @@ password.addEventListener("keyup", e => {
     if (errPass.style.opacity === "1") {
         changeState(errPass, false);
     }
-
-    console.log(passHide.style.opacity === "0");
 
     if (password.value === "") {
         togglePasswordShown(true, true);

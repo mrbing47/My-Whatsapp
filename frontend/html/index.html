@@ -21,25 +21,53 @@
 
 <body>
     <div class="contacts-container">
-        <div class="contact"></div>
-        <div class="no-contact">
-            <div class="form-grp">
-                <input type="text" name="Search-Name" id="searchname" placeholder="Enter Name Here..">
-                <i class="fas fa-exclamation-circle fa-lg fa-err fa-ab" id="err-name"></i>
+        <div class="inner-container">
+            <div class="head-container">
+                <span class="profile-name">QWERTY</span>
+                <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i></a>
             </div>
-            <a href="#" class="btn" id="join-grp">Join Group</a>
-            <a href="#" class="btn" id="create-grp">Create Group</a>
-            <a href="#" class="btn" id="dm-frnd">Chat with a Friend</a>
+            <div id="contact"></div>
+            <div id="no-contact">
+                <div class="form-grp">
+                    <input type="text" name="Search-Name" id="searchname" placeholder="Enter Name Here..">
+                    <i class="fas fa-exclamation-circle fa-lg fa-err fa-ab" id="err-name"></i>
+                </div>
+                <a href="#" class="btn" id="join-grp">Join Group</a>
+                <a href="#" class="btn" id="create-grp">Create Group</a>
+                <a href="#" class="btn" id="dm-frnd">Chat with a Friend</a>
 
+            </div>
         </div>
         <div id="snackbar">
             <span id="snacktext"></span>
             <i class="fas fa-times" id="snackbutton"></i>
         </div>
     </div>
-    <div class="content-container">
-        <div class="lobby-container">
-            <div class="message-container"></div>
+    <div id="content-container">
+        <div class="inner-container">
+            <div class="head-container">
+                <span id="lobby-name">QWERTY</span>
+            </div>
+            <div class="lobby-container">
+                <div id="message-container">
+                    <!-- <div class="message-card sender">
+                        <span class="message-name">QWERTY</span>
+                        <span class="message-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magnam
+                            repudiandae consequuntur. Soluta iure ex fugiat nobis facilis distinctio labore quo, earum
+                            laudantium aliquid vitae inventore nostrum. Corrupti, illum officiis?</span>
+                    </div>
+                    <div class="message-card receiver">
+                        <span class="message-name">QWERTY</span>
+                        <span class="message-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Illum magnam
+                            repudiandae consequuntur. Soluta iure ex fugiat nobis facilis distinctio labore quo, earum
+                            laudantium aliquid vitae inventore nostrum. Corrupti, illum officiis?</span>
+                    </div>
+                    <div class="message-info">
+                        <span id="info-name">QWERTY</span> have connected</div> -->
+
+                </div>
+            </div>
             <div class="form-container">
                 <input type="text" name="message" id="message" placeholder="Enter your message here.."><button
                     type="submit" id="send-message" class="btn">
